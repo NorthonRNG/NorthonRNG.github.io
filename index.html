@@ -1,127 +1,65 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Manejo de Validaciones</title>
+        <title>Datos de Alumnos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/estilos.css">
     </head>
     <body>
+           <form id="forma" action="javascript:procesa()">
         <header>
-            <h1>Operaciones Aritméticas (suma, resta, multiplicación, división)</h1>
+            <h1>Capturar datos de los Alumnos</h1>
         </header>
-        <h2>Calcular</h2>
-        <h3>Suma: </h3>
-     <form action="javascript:calculaSuma();">
-      <p><label>Operador 1<input id="S1" type="number"></label></p>
-      <p><label>Operador 2<input id="S2" type="number"></label></p>
-      <p><button>Sumar</button></p>
-      <p><output id="outSuma"></output></p>
+        <p>
+            <label accesskey="B">
+                Boleta <br>
+                <input name="boleta" type="text" required maxlength="10"
+                       placeholder="10 digitos">
+            </label>
+            <br><output id="salidaBoleta"></output>
+        </p>
+        
+        <p>
+            <label accesskey="N">
+                Nombre <br>
+                <input name="nombre" type="text" required>
+            </label>
+            <br><output id="salidaNombre"></output>
+        </p>
+        
+        <p>
+            <label accesskey="G">
+                Grupo <br>
+                <input name="grupo" type="text" required maxlength="5"
+                       placeholder="3 números y 2 letras">
+            </label>
+            <br><output id="salidaGrupo"></output>
+        </p>
+        
+        <p>
+            <label accesskey="M">
+                Materia <br>
+                <input name="materia" type="text" required>
+            </label>
+            <br><output id="salidaMateria"></output>
+        </p>
+        
+        <p>
+            <label accesskey="F">
+                Fecha <br>
+                <input name="fecha" type="date" autofocus required
+                       max="2022-05-22" min="2021-05-22">
+            </label>
+            <br><output id="salidaFecha"></output>
+            <br><output id="salidaFecha1"></output>
+        </p>
+        
+        <p>
+                <button type="submit" accesskey="P"> Enviar </button>
+            </p>
+            <br>
+                <output Id="enviar"></output>
     </form>
-         <h3>Resta: </h3>
-     <form action="javascript:calculaResta();">
-      <p><label>Operador 1<input id="R1" type="number"></label></p>
-      <p><label>Operador 2<input id="R2" type="number"></label></p>
-      <p><button>Restar</button></p>
-      <p><output id="outResta"></output></p>
-    </form>
-          <h3>Multipliación: </h3>
-    <form action="javascript:calculaMultiplicación();">
-      <p><label>Operador 1<input id="M1" type="number"></label></p>
-      <p><label>Operador 2<input id="M2" type="number"></label></p>
-      <p><button>Restar</button></p>
-      <p><output id="outMultiplicación"></output></p>
-    </form>
-           <h3>División: </h3>
-    <form action="javascript:calculaDivisión();">
-      <p><label>Operador 1<input id="D1" type="number"></label></p>
-      <p><label>Operador 2<input id="D2" type="number"></label></p>
-      <p><button>Dividir</button></p>
-      <p><output id="outDivisión"></output></p>
-    </form>  
-    <footer>
-      <p>Copyright &copy; Tolentino García César Ivan</p>
-    </footer>
-<script>
-      function calculaSuma(){
-        try{
-          const a = S1.valueAsNumber;
-          const b = S2.valueAsNumber;
-          valida(!isNaN(a), "Falta Operador 1");
-          valida(!isNaN(b), "Falta Operador 2");
-          const resultado = a + b;
-          outSuma.value = resultado;
-        }catch(e){
-          console.log(e);
-          outSuma.value = e.message;
-        }
-      }
-      function valida(condicion, mensaje){
-        if (!condicion){
-          throw new Error(mensaje);
-        }
-      }
-</script>
-<script>
-      function calculaResta(){
-        try{
-          const a = R1.valueAsNumber;
-          const b = R2.valueAsNumber;
-          valida(!isNaN(a), "Falta Operador 1");
-          valida(!isNaN(b), "Falta Operador 2");
-          const resultado = a - b;
-          outResta.value = resultado;
-        }catch(e){
-          console.log(e);
-          outResta.value = e.message;
-        }
-      }
-      function valida(condicion, mensaje){
-        if (!condicion){
-          throw new Error(mensaje);
-        }
-      }
-</script>
-<script>
-      function calculaMultiplicación(){
-        try{
-          const a = M1.valueAsNumber;
-          const b = M2.valueAsNumber;
-          valida(!isNaN(a), "Falta Operador 1");
-          valida(!isNaN(b), "Falta Operador 2");
-          const resultado = a * b;
-          outMultiplicación.value = resultado;
-        }catch(e){
-          console.log(e);
-          outMultiplicación.value = e.message;
-        }
-      }
-      function valida(condicion, mensaje){
-        if (!condicion){
-          throw new Error(mensaje);
-        }
-      }
-</script>
-<script>
-      function calculaDivisión(){
-        try{
-          const a = D1.valueAsNumber;
-          const b = D2.valueAsNumber;
-          valida(!isNaN(a), "Falta Operador 1");
-          valida(!isNaN(b), "Falta Operador 2");
-          valida(b !== 0, "Operador 2 no puede ser 0.");
-          const resultado = a / b;
-          outDivisión.value = resultado;
-        }catch(e){
-          console.log(e);
-          outDivisión.value = e.message;
-        }
-      }
-      function valida(condicion, mensaje){
-        if (!condicion){
-          throw new Error(mensaje);
-        }
-      }
-</script>
+        <script src="js/CtrlEnviar.js"></script>
     </body>
 </html>
