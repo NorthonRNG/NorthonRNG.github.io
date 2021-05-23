@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Manejo de Validaciones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <header>
+            <h1>Operaciones Aritméticas (suma, resta, multiplicación, división)</h1>
+        </header>
+        <h2>Calcular</h2>
+        <h3>Suma: </h3>
+     <form action="javascript:calculaSuma();">
+      <p><label>Operador 1<input id="S1" type="number"></label></p>
+      <p><label>Operador 2<input id="S2" type="number"></label></p>
+      <p><button>Sumar</button></p>
+      <p><output id="outSuma"></output></p>
+    </form>
+         <h3>Resta: </h3>
+     <form action="javascript:calculaResta();">
+      <p><label>Operador 1<input id="R1" type="number"></label></p>
+      <p><label>Operador 2<input id="R2" type="number"></label></p>
+      <p><button>Restar</button></p>
+      <p><output id="outResta"></output></p>
+    </form>
+          <h3>Multipliación: </h3>
+    <form action="javascript:calculaMultiplicación();">
+      <p><label>Operador 1<input id="M1" type="number"></label></p>
+      <p><label>Operador 2<input id="M2" type="number"></label></p>
+      <p><button>Restar</button></p>
+      <p><output id="outMultiplicación"></output></p>
+    </form>
+           <h3>División: </h3>
+    <form action="javascript:calculaDivisión();">
+      <p><label>Operador 1<input id="D1" type="number"></label></p>
+      <p><label>Operador 2<input id="D2" type="number"></label></p>
+      <p><button>Dividir</button></p>
+      <p><output id="outDivisión"></output></p>
+    </form>  
+    <footer>
+      <p>Copyright &copy; Tolentino García César Ivan</p>
+    </footer>
+<script>
+      function calculaSuma(){
+        try{
+          const a = S1.valueAsNumber;
+          const b = S2.valueAsNumber;
+          valida(!isNaN(a), "Falta Operador 1");
+          valida(!isNaN(b), "Falta Operador 2");
+          const resultado = a + b;
+          outSuma.value = resultado;
+        }catch(e){
+          console.log(e);
+          outSuma.value = e.message;
+        }
+      }
+      function valida(condicion, mensaje){
+        if (!condicion){
+          throw new Error(mensaje);
+        }
+      }
+</script>
+<script>
+      function calculaResta(){
+        try{
+          const a = R1.valueAsNumber;
+          const b = R2.valueAsNumber;
+          valida(!isNaN(a), "Falta Operador 1");
+          valida(!isNaN(b), "Falta Operador 2");
+          const resultado = a - b;
+          outResta.value = resultado;
+        }catch(e){
+          console.log(e);
+          outResta.value = e.message;
+        }
+      }
+      function valida(condicion, mensaje){
+        if (!condicion){
+          throw new Error(mensaje);
+        }
+      }
+</script>
+<script>
+      function calculaMultiplicación(){
+        try{
+          const a = M1.valueAsNumber;
+          const b = M2.valueAsNumber;
+          valida(!isNaN(a), "Falta Operador 1");
+          valida(!isNaN(b), "Falta Operador 2");
+          const resultado = a * b;
+          outMultiplicación.value = resultado;
+        }catch(e){
+          console.log(e);
+          outMultiplicación.value = e.message;
+        }
+      }
+      function valida(condicion, mensaje){
+        if (!condicion){
+          throw new Error(mensaje);
+        }
+      }
+</script>
+<script>
+      function calculaDivisión(){
+        try{
+          const a = D1.valueAsNumber;
+          const b = D2.valueAsNumber;
+          valida(!isNaN(a), "Falta Operador 1");
+          valida(!isNaN(b), "Falta Operador 2");
+          valida(b !== 0, "Operador 2 no puede ser 0.");
+          const resultado = a / b;
+          outDivisión.value = resultado;
+        }catch(e){
+          console.log(e);
+          outDivisión.value = e.message;
+        }
+      }
+      function valida(condicion, mensaje){
+        if (!condicion){
+          throw new Error(mensaje);
+        }
+      }
+</script>
+    </body>
+</html>
