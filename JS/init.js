@@ -6,7 +6,7 @@ firebase.initializeApp({
     authDomain: "fbnorthonrng.firebaseapp.com",
     projectId: "fbnorthonrng",
     storageBucket: "fbnorthonrng.appspot.com",
-    messagingSenderId: "1051272340736", //ligar la aplicación firebase con la web
+    messagingSenderId: "1051272340736",
     appId: "1:1051272340736:web:631e168bb8ddef5dd07fe5",
     measurementId: "G-DT6HVYKKFJ"
     });
